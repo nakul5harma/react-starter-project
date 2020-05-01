@@ -47,7 +47,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
-    "bootstrap": "4.1.1",
+    "bootstrap": "4.3.1",
     "byots": "^2.1.0-dev.20160724.9.14",
     "css-loader": "^2.1.1",
     "eslint": "^5.16.0",
