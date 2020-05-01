@@ -1,0 +1,26 @@
+//input-search
+.search-input {
+  border: 1px solid $gray-300;
+  border-right: 0;
+  border-radius: $input-group-search-border-radius;
+  font-size: $input-search-font-size;
+  padding: $input-search-padding-y $input-search-padding-x;
+  height: auto;
+  font-weight: normal;
+  &:focus {
+    border-color: $gray-300;
+  }
+}
+
+.btn-search-icon {
+  padding: 0 $input-search-btn-icon-padding-x;
+  border-left: 0;
+  color: $gray-500;
+  display: flex;
+  align-items: center;
+  background-color: $white;
+  border-color: $gray-300;
+  &:focus {
+    box-shadow: none;
+  }
+}

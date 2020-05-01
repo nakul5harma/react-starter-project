@@ -6,6 +6,13 @@ import { HelloModel } from '../components/hello/models';
 import api from '../middlewares/api';
 import rootReducer from './rootReducer';
 
+export interface ApiCallInterface {
+  loading: boolean;
+  data: any;
+  error: boolean;
+  total?: number;
+}
+
 export interface StateInterface {
   loader: any;
   hello: HelloModel;

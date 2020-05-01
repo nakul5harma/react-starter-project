@@ -1,0 +1,48 @@
+@import '../../styles/css-imports';
+
+//tabs
+.home-tab {
+  box-shadow: $nav-tabs-box-shadow;
+  background-color: $white;
+  position: relative;
+  z-index: $zindex-click;
+}
+
+.tab-pane-content {
+  .list-view-tab-content & {
+    &.active {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+    }
+  }
+  .list-group-item {
+    &:hover {
+      background-color: $gray-100;
+    }
+    .icons {
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.tab-list-header {
+  padding: $list-group-header-padding-y $list-group-header-padding-x;
+  font-size: $list-group-header-font-size;
+  background-color: $gray-100;
+  margin: $list-group-header-margin-y 0;
+  color: $gray-900;
+}
+.list-badge {
+  color: $gray-700;
+}
+
+//checkBox-list
+
+.icon-athlete-group {
+  color: $gray-500;
+  font-size: 1.5rem;
+}

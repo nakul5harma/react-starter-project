@@ -1,0 +1,95 @@
+.calender-card {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
+
+  height: 114px;
+}
+.card {
+  box-shadow: $card-box-shadow;
+  .card-title-left {
+    //width: 100%;
+    padding-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    &.no-badge {
+      .title {
+        max-width: 90%;
+      }
+    }
+  }
+  .card-title-img {
+    color: $primary;
+  }
+  .title {
+    //max-width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    //flex-grow: 1;
+  }
+  .card-data {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  &.bordered-title {
+    margin-botton: 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.0625rem solid $border-color;
+    .title {
+      font-size: 0.875rem;
+    }
+    .btn {
+      padding: 0.25rem 1rem;
+    }
+  }
+}
+
+.read-only {
+  //flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px;
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
+  .read-only-label {
+    font-size: 0.875rem;
+    color: $gray-500;
+    line-height: 1.2;
+    &.label-down {
+      margin-bottom: 0;
+    }
+  }
+  .read-only-title {
+    font-size: 1.25rem;
+    color: $gray-900;
+    line-height: 1.2;
+  }
+}
+
+.medal-box {
+  color: #ff9300;
+}
+
+.card-activity-summary {
+  margin-bottom: 0.75rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &.low-intensity {
+    .read-only-title {
+      font-size: 0.875rem;
+      color: $gray-500;
+    }
+  }
+}

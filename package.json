@@ -6,12 +6,12 @@
   "license": "MIT",
   "main": "index.ts",
   "scripts": {
-    "start": "webpack-dev-server --mode development --port 3000 --content-base public/ --history-api-fallback",
-    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --port 8000 --content-base public/ --history-api-fallback",
+    "build": "webpack --config webpack.prod.config.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/**",
-    "lint-fix": "eslint 'src/**' --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\""
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint-fix": "eslint src/**/*.{ts,tsx} --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,scss}\""
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
@@ -20,9 +20,11 @@
     "@types/react-redux": "^7.1.7",
     "@types/react-router": "^5.1.7",
     "@types/react-router-dom": "^4.3.5",
+    "@types/reactstrap": "^8.4.2",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
     "axios": "^0.18.0",
+    "formik": "^2.1.4",
     "moment": "^2.24.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

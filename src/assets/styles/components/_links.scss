@@ -1,0 +1,17 @@
+$link-black-color: $gray-900;
+$link-black-hover-color: darken($link-black-color, 15%);
+
+.custom-link {
+  display: inline-block;
+  font-size: 0.875rem;
+}
+.link-blue {
+  color: $link-color;
+}
+
+.link-black {
+  color: $link-black-color;
+  &:hover {
+    color: $link-black-hover-color;
+  }
+}

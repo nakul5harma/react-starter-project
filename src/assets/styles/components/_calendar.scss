@@ -1,0 +1,540 @@
+@import '../css-imports';
+
+//Calendar container variables
+$calendar-max-width: 68.25rem;
+$calendar-box-shadow: 0 0 0.375rem rgba(0, 0, 0, 0.16);
+
+//Cell variables
+$th-padding-y: 0.375rem;
+$td-padding-y: 0.5rem;
+$th-padding-x: $th-padding-y;
+$td-padding-x: $th-padding-x;
+$calendar-cell-border-width: 0;
+
+//day grid variables
+$fc-grid-padding-x: 1rem;
+$fc-grid-padding-y: 0.625rem;
+$fc-grid-padding: $fc-grid-padding-y $fc-grid-padding-x;
+
+//Today date variables
+$today-date-width: 1.75rem;
+$today-date-height: $today-date-width;
+$today-date-line-height: $today-date-width;
+$today-date-font-size: 1rem;
+
+//Month selector bar variables
+$toolbar-bg-color: $white;
+$tbody-bg-color: $white;
+$toolbar-padding: $fc-grid-padding;
+$toolbar-button-bg-color: transparent;
+$toolbar-button-color: $pink;
+$toolbar-button-border-color: $toolbar-button-color;
+$toolbar-button-font-size: 0.875rem;
+$toolbar-button-hover-bg-color: $toolbar-button-color;
+$toolbar-button-hover-color: $white;
+$toolbar-button-hover-border-color: $toolbar-button-hover-bg-color;
+$toolbar-text-color: #666;
+$toolbar-prev-next-button-color: $toolbar-text-color;
+$toolbar-prev-next-button-border-color: $toolbar-text-color;
+$toolbar-prev-next-button-padding-y: 0.025rem;
+$toolbar-prev-next-button-padding-x: 0.25rem;
+$toolbar-prev-next-icon-font-size: 2rem;
+$toolbar-text-font-size: 1rem;
+
+// Days header variables
+$days-header-bg-color: #f1f1f1;
+$days-header-color: $toolbar-text-color;
+$days-header-font-family: $font-family-base;
+
+//scrollable-content
+$fc-scroller-height: 12.5rem;
+
+//event variables
+$event-min-height: 8.8125rem;
+$event-box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.16);
+$event-bg-color: $white;
+$event-border-width: 0;
+$event-padding-y: 0.625rem;
+$event-padding-x: 0.5rem;
+$event-color: #e244d0;
+$strength-training-color: #675af2;
+
+//acitivity data variables
+$planned-and-not-performed-color: $pink;
+$planned-and-performed-color: #69bd3f;
+$not-planned-and-performed-color: #ed9000;
+$activity-title-font-size: 0.745rem;
+$activity-title-color: #444;
+$activity-icon-width: 1.125rem;
+$activity-icon-height: $activity-icon-width;
+$activity-data-title-font-size: 0.5rem;
+$activity-data-title-color: $days-header-color;
+$activity-data-value-font-size: 0.75rem;
+$activity-data-value-color: $activity-title-color;
+
+// Calendar mobile variables
+$mobile-container-height: 15.8rem;
+$mobile-is-trainee-container-height: 8.3rem;
+$mobile-event-buttons-padding-y: 0.75rem;
+$mobile-event-buttons-padding-x: 1rem;
+$mobile-event-buttons-box-shadow: 0 -0.125rem 0.5625rem rgba(0, 0, 0, 0.16);
+$mobile-event-button-font-size: 0.875rem;
+
+.calendar-header {
+  max-width: $calendar-max-width;
+  margin: 0 auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.fc {
+  max-width: $calendar-max-width;
+  margin: 0 auto;
+  &::not(.mobile-view &) {
+    box-shadow: $calendar-box-shadow;
+  }
+  .fc-dayGrid-view .fc-body .fc-row {
+    min-height: auto;
+  }
+  th {
+    padding: $th-padding-y $th-padding-x;
+  }
+  td {
+    background-color: $tbody-bg-color;
+    padding: $td-padding-y $td-padding-x;
+    &.fc-head-container,
+    &.fc-widget-content {
+      padding: 0;
+    }
+  }
+  th,
+  td {
+    border-width: $calendar-cell-border-width;
+  }
+}
+
+.fc-widget-header {
+  margin-right: 0 !important;
+  border-width: 0 !important;
+  padding: 0 $fc-grid-padding-x;
+  background-color: $days-header-bg-color;
+}
+
+.fc-scroller {
+  height: calc(100vh - 11.5rem) !important;
+}
+
+.fc-day-grid {
+  width: auto;
+}
+
+.fc-scroller > .fc-day-grid,
+.fc-scroller > .fc-time-grid {
+  padding: 0 $fc-grid-padding-x;
+  width: auto;
+}
+
+.fc-toolbar {
+  background-color: $toolbar-bg-color;
+  padding: $toolbar-padding;
+  display: flex;
+  justify-content: space-between;
+  &.fc-header-toolbar {
+    margin-bottom: 0;
+  }
+}
+
+.fc-left h2,
+.mobile-view .fc-center h2 {
+  font-size: $toolbar-text-font-size;
+  font-weight: 400;
+  color: $toolbar-text-color;
+  text-transform: uppercase;
+}
+
+.fc-left,
+.fc-right,
+.mobile-view .fc-center {
+  display: flex;
+  align-items: center;
+}
+
+.fc-customTodayButton-button,
+.fc-customAddStrengthTrainingButton-button,
+.fc-customAddEventButton-button,
+.fc-customTodayButton-button:disabled {
+  background-color: transparent;
+  border-color: $toolbar-button-border-color;
+  color: $toolbar-button-color;
+  font-size: $toolbar-button-font-size;
+  text-transform: capitalize;
+  box-shadow: none;
+  line-height: 1.1875;
+  &:hover,
+  &:focus,
+  &:active,
+  &.fc-button-primary:not(:disabled):active,
+  &.fc-button-primary:not(:disabled).fc-button-active {
+    background-color: $toolbar-button-hover-bg-color;
+    color: $toolbar-button-hover-color;
+    border-color: $toolbar-button-hover-border-color;
+    box-shadow: none;
+  }
+}
+
+.fc-customTodayButton-button {
+  &:disabled,
+  &:hover:disabled {
+    background-color: transparent;
+    color: $toolbar-button-color;
+  }
+}
+.fc-unthemed td.fc-today {
+  background-color: transparent;
+}
+.fc-ltr .fc-dayGrid-view .fc-day-top.fc-today {
+  text-align: center;
+}
+.fc-ltr .fc-dayGrid-view .fc-day-top.fc-today .fc-day-number {
+  display: inline-block;
+  background-color: $pink;
+  border-radius: 50%;
+  width: $today-date-width;
+  height: $today-date-height;
+  line-height: $today-date-line-height;
+  text-align: center;
+  color: $white;
+  font-size: $today-date-font-size;
+}
+
+.fc-customNextButton-button,
+.fc-customPrevButton-button {
+  background-color: transparent;
+  color: $toolbar-prev-next-button-color;
+  border-color: transparent;
+  padding: $toolbar-prev-next-button-padding-y
+    $toolbar-prev-next-button-padding-x;
+  .fc-icon {
+    font-size: $toolbar-prev-next-icon-font-size;
+  }
+  &:hover,
+  &:focus,
+  &:active,
+  &.fc-button-primary:not(:disabled):active,
+  &.fc-button-primary:not(:disabled).fc-button-active {
+    background-color: transparent;
+    color: $toolbar-prev-next-button-color;
+    border-color: $toolbar-prev-next-button-border-color;
+    box-shadow: none;
+    outline: 0;
+  }
+}
+
+.fc-day-header {
+  background-color: $days-header-bg-color;
+  color: $days-header-color;
+  font-weight: normal;
+  font-family: $days-header-font-family;
+}
+.fc-event {
+  cursor: pointer;
+  &:not(.fc-event-only-title) {
+    min-height: $event-min-height;
+  }
+
+  background-color: $event-bg-color;
+  box-shadow: $event-box-shadow;
+  border-width: $event-border-width;
+  padding: 0 0 $event-padding-y $event-padding-x;
+  h4 {
+    padding-top: $event-padding-y;
+    padding-right: $event-padding-x;
+    .icon-wrapper {
+      .calendar-group-icon {
+        top: 0.025rem;
+        right: 0.25rem;
+      }
+      .calendar-key-icon {
+        &:not(:first-child) {
+          top: 1.5625rem;
+          right: 0.3125rem;
+        }
+        &:first-child {
+          top: 0.25rem;
+          right: 0.25rem;
+        }
+      }
+    }
+  }
+  .activity-data-wrapper {
+    padding-right: $event-padding-x;
+  }
+  .activity-title {
+    font-size: $activity-title-font-size;
+    color: $activity-title-color;
+    text-transform: capitalize;
+    font-weight: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    flex-basis: 93%;
+  }
+  .activity-data {
+    margin-bottom: 0.75rem;
+  }
+  .activity-data-title,
+  .activity-data-value {
+    display: block;
+  }
+  .activity-data-title {
+    font-size: $activity-data-title-font-size;
+    color: $activity-data-title-color;
+    margin-bottom: 0;
+    text-transform: uppercase;
+  }
+  .activity-data-value {
+    font-size: $activity-data-value-font-size;
+    color: $activity-data-value-color;
+  }
+  &.planned-and-not-performed {
+    border-left: $border-width solid $planned-and-not-performed-color;
+  }
+  &.planned-and-performed {
+    border-left: $border-width solid $planned-and-performed-color;
+  }
+  &.not-planned-and-performed {
+    border-left: $border-width solid $not-planned-and-performed-color;
+  }
+  &.add-plan {
+    display: flex;
+    .fc-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+    }
+    text-align: center;
+    .activity-icon {
+      fill: $pink;
+      transition: 0.25s all ease;
+      margin-right: 0;
+    }
+  }
+  &.fc-event-only-title {
+    .strength-training {
+      .activity-icon,
+      .activity-title {
+        color: $strength-training-color;
+      }
+    }
+    .custom-event {
+      .activity-icon,
+      .activity-title {
+        color: $event-color;
+      }
+    }
+  }
+}
+
+.fc-ltr .fc-dayGrid-view .fc-day-top .fc-day-number {
+  float: none;
+  display: block;
+  text-align: center;
+}
+.activity-icon {
+  font-size: 1.35rem;
+  margin-right: 0.25rem;
+  .planned-and-not-performed & {
+    color: $planned-and-not-performed-color;
+  }
+  .planned-and-performed & {
+    color: $planned-and-performed-color;
+  }
+  .not-planned-and-performed & {
+    color: $not-planned-and-performed-color;
+  }
+}
+
+.mobile-view {
+  overflow: hidden;
+  &.is-trainee {
+    .fc-scroller {
+      height: calc(100vh - #{$mobile-is-trainee-container-height}) !important;
+    }
+  }
+  .fc-scroller {
+    height: calc(100vh - #{mobile-container-height}) !important;
+  }
+  .mobile-event-buttons {
+    padding: $mobile-event-buttons-padding-y $mobile-event-buttons-padding-x;
+    background: $white;
+    box-shadow: $mobile-event-buttons-box-shadow;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    z-index: 1;
+    .mobile-event-button {
+      flex-basis: 50%;
+      font-size: $mobile-event-button-font-size;
+      text-align: center;
+      &:first-child {
+        border-right: $border-width solid $pink;
+      }
+    }
+  }
+
+  .fc-list-table {
+    .fc-list-heading {
+      &:not(.first-child) {
+        .fc-widget-innerheader {
+          margin-top: 1.25rem;
+        }
+      }
+    }
+  }
+  .fc-toolbar {
+    padding: 0 0 0.5rem;
+    text-align: center;
+    background-color: transparent;
+    border-bottom: $border-width solid #ddd;
+    margin-bottom: 1rem;
+  }
+  .fc-list-heading {
+    .fc-widget-header {
+      background-color: transparent;
+      padding: 0;
+    }
+    .fc-widget-innerheader {
+      background-color: $white;
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      color: $pink;
+      text-transform: capitalize;
+      opacity: 0.9;
+    }
+    .fc-list-heading-main {
+      margin-right: 0.3125rem;
+    }
+  }
+  .fc-list-item {
+    .fc-widget-content {
+      border-top: $border-width solid #ededed;
+      padding: 1rem;
+      .activity-data.first-child {
+        margin-left: 0;
+      }
+      .activity-data.last-child {
+        margin-right: 0;
+      }
+    }
+    .activity-icon {
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+    .activity-title {
+      font-size: 1rem;
+      font-weight: 400;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      flex-basis: 93%;
+    }
+    .activity-data-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    .activity-data {
+      display: flex;
+      flex-direction: column;
+    }
+    .activity-data-title {
+      font-size: 0.625rem;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 0;
+    }
+    .activity-data-value {
+      font-size: 1.25rem;
+      color: #222;
+    }
+  }
+  .strength-training {
+    color: $strength-training-color;
+  }
+  .custom-event {
+    color: $event-color;
+  }
+}
+.fc-day-grid-event .fc-content {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.icon-wrapper {
+  .calendar-group-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    font-size: 0.875rem;
+  }
+  .calendar-key-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    font-size: 0.875rem;
+    .mobile-view & {
+      &:not(:first-child) {
+        top: -0.5rem;
+        right: 1.875rem;
+      }
+    }
+  }
+  .calendar-group-icon,
+  .calendar-key-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 100%;
+    display: inline-block;
+    .mobile-view & {
+      top: -0.625rem;
+    }
+  }
+}
+
+.android {
+  .mobile-view {
+    &.is-trainee {
+      .fc-scroller {
+        height: calc(100vh - 13rem) !important;
+      }
+    }
+    .fc-scroller {
+      height: calc(100vh - 15.8rem) !important;
+    }
+  }
+  &.tablet {
+    .fc-scroller {
+      height: calc(100vh - 16rem) !important;
+    }
+  }
+}
+
+.ios {
+  .mobile-view {
+    &.is-trainee {
+      .fc-scroller {
+        height: calc(100vh - 17rem) !important;
+      }
+    }
+    .fc-scroller {
+      height: calc(100vh - 17rem) !important;
+    }
+  }
+  &.tablet {
+    .fc-scroller {
+      height: calc(100vh - 16rem) !important;
+    }
+  }
+}

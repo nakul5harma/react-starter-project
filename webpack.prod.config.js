@@ -11,7 +11,6 @@ module.exports = {
     publicPath: '/',
     path: __dirname + '/public',
   },
-  devtool: 'source-map',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },

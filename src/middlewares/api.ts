@@ -1,6 +1,5 @@
 import { Middleware, Store } from 'redux';
 import * as batch from 'redux-batched-actions';
-
 import * as api from '../services/api';
 
 export const CALL_API = 'Call API';
@@ -75,6 +74,10 @@ const apiMiddleware: Middleware = (store: Store<any>) => (next: any): any => (
             error.response.data &&
             error.response.data.errors &&
             error.response.data.errors[0]) ||
+          (error.response.data &&
+            error.response.data.errors &&
+            error.response.data.errors.msg) ||
+          error.response.data.error ||
           (action.actionData && action.actionData.errorMessage);
         next(
           batch.batchActions([

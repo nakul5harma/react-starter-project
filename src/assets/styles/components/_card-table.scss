@@ -1,0 +1,43 @@
+.card-table {
+  .card-body {
+    padding-top: 0.3125rem;
+  }
+  .card-table-header {
+    padding-bottom: 0.3125rem;
+    border-bottom: 0.0625rem solid $border-color;
+  }
+  .card-table-th {
+    font-size: 0.875rem;
+    color: $gray-900;
+  }
+  .card-table-body {
+    .card-table-th {
+      color: $gray-500;
+      padding-top: 0.3125rem;
+      padding-bottom: 0.3125rem;
+      .sub-heading {
+        display: block;
+        line-height: 1.2;
+      }
+    }
+    .card-table-td {
+      padding-top: 0.3125rem;
+      padding-bottom: 0.3125rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      &.planned {
+        color: $gray-800;
+      }
+      &.completed {
+        color: $gray-900;
+      }
+    }
+    .card-table-row {
+      &:hover,
+      &.active {
+        background: $card-table-hover;
+      }
+    }
+  }
+}

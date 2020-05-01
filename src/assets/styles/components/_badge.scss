@@ -1,0 +1,10 @@
+.badge {
+  &:empty {
+    display: inline-block;
+  }
+  color: $badge-color;
+  &.badge-empty {
+    width: 1.5rem;
+    height: 1rem;
+  }
+}

@@ -1,0 +1,77 @@
+@import '../css-imports';
+
+.main-navbar {
+  box-shadow: $navbar-box-shadow;
+  position: relative;
+  z-index: $zindex-fixed;
+  // .container{
+  //     padding-left: 0;
+  //     padding-right: 0;
+  // }
+}
+
+.page-header {
+  padding: 0.5rem 0.9375rem;
+  @include media-breakpoint-up(md) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  min-height: 3.625rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+.header-middle {
+  flex-grow: 1;
+}
+.header-title {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: $black;
+  margin-bottom: 0;
+  line-height: 1;
+}
+.sub-title {
+  font-size: 0.8125rem;
+  color: $gray-800;
+}
+.header-right {
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.header-tabs {
+  width: 100%;
+  .nav-item {
+    flex-grow: 1;
+    text-align: center;
+  }
+  .nav-link {
+    padding: $header-tab-item-padding-y $header-tab-item-padding-x;
+    cursor: pointer;
+    &,
+    &:not([href]):not([tabindex]) {
+      color: $header-tab-item-color;
+    }
+    .header-icons {
+      font-size: 1.25rem;
+    }
+    &.active {
+      border-bottom: 0.125rem solid $header-tab-item-active-border-color;
+      &,
+      &:not([href]):not([tabindex]) {
+        color: $primary;
+      }
+      .header-icons {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

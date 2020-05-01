@@ -1,0 +1,46 @@
+@import '../css-imports';
+
+.nav-tabs {
+  border: 0;
+  box-shadow: $nav-tabs-box-shadow;
+  background-color: $white;
+  .nav-item {
+    flex-basis: 50%;
+    color: $gray-900;
+    &:not(:last-child) {
+      .nav-link {
+        &:after {
+          content: '';
+          border: 0.0625rem solid $nav-divider-color;
+          position: absolute;
+          right: 0;
+          top: 0.9375rem;
+          bottom: 0.9375rem;
+        }
+      }
+    }
+  }
+  .nav-link {
+    cursor: pointer;
+    text-align: center;
+    padding: $nav-tabs-link-padding-y 0;
+    position: relative;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, color 0.3s ease;
+    border-bottom: $nav-tabs-link-active-border-width solid transparent;
+    .tab-heading,
+    .tab-sub-heading {
+      line-height: 1;
+    }
+    &:not([href]) {
+      color: $gray-500;
+      &.active {
+        border-bottom-color: $primary;
+        color: $gray-900;
+        .tab-sub-heading {
+          color: $gray-800;
+        }
+      }
+    }
+  }
+}

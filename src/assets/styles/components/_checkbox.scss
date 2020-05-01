@@ -1,0 +1,19 @@
+@import '../css-imports';
+
+.checkbox {
+  //border-color: $primary;
+}
+.custom-control-label::after {
+  //border-color: $primary;
+  background-size: 70%;
+}
+.checkbox-list {
+  .custom-control-label {
+    padding-left: 1rem;
+  }
+}
+.custom-radio {
+  .custom-control-input:checked ~ .custom-control-label::before {
+    background: $white;
+  }
+}

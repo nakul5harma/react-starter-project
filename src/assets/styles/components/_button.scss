@@ -1,0 +1,12 @@
+.btn-outline-secondary {
+  &:hover,
+  &:focus,
+  &:active,
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
+    background-color: $secondary;
+    border-color: $secondary;
+    color: $white;
+  }
+  color: $secondary;
+}
